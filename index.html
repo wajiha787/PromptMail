@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PromptMail</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <section id="hero" class="hero-section">
+        <div class="section-box">
+          <header>
+            <a class="header-logo"><span>prompt</span>mail</a>
+            <nav>
+              <a class="nav-items active">Home</a>
+              <a class="nav-items">About</a>
+              <a class="nav-items">Contact</a>
+            </nav>
+          </header>
+      
+          <div class="hero-content">
+            <!-- Video Section -->
+            <div class="video-container">
+              <video autoplay loop muted playsinline class="foreground-video">
+                <source src="3DIcon.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+      
+            <!-- Text Content -->
+            <div class="text-content">
+              <h3 class="hero-subtitle">Generate Professional Emails</h3>
+              <h1 class="hero-title">PromptMail</h1>
+              <p class="hero-description">Enter your prompt and tone below to generate emails instantly.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+
+  <!-- Email Generation Form -->
+  <section id="email-form" class="form-section">
+    <div class="form-box">
+      <h2>Generate Your Email</h2>
+      <form id="emailForm">
+        <textarea id="userPrompt" class="input-field" placeholder="Enter your prompt here..."></textarea>
+        <select id="toneSelector" class="input-field">
+          <option value="professional">Professional</option>
+          <option value="informal">Informal</option>
+        </select>
+        <button type="submit" class="submit-btn">Generate Email</button>
+      </form>
+      <div id="output" class="output-box"></div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <section id="footer" class="footer-section">
+    <div class="footer-box">
+      <p>&copy; 2025 PromptMail. All rights reserved.</p>
+    </div>
+  </section>
+
+  <script>
+    // JavaScript for form submission and email generation
+    document.getElementById('emailForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const userPrompt = document.getElementById('userPrompt').value;
+      const tone = document.getElementById('toneSelector').value;
+      // Handle the form data
+      document.getElementById('output').innerHTML = `
+        <h3>Your Generated Email:</h3>
+        <p><strong>Prompt:</strong> ${userPrompt}</p>
+        <p><strong>Tone:</strong> ${tone}</p>
+        <p><strong>Email Preview:</strong> Dear [Recipient],<br> ${userPrompt} Regards, Your Name</p>
+      `;
+    });
+  </script>
+
+  <!-- Animation and Scroll Effects -->
+  <script src="animations.js"></script>
+</body>
+</html>
